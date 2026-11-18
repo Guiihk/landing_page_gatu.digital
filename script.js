@@ -1,5 +1,27 @@
 const revealItems = document.querySelectorAll('.reveal');
 const phoneInput = document.querySelector('input[name="phone"]');
+const testimonialGallery = document.querySelector('#testimonial-gallery');
+const testimonialControls = document.querySelector('.testimonial-controls');
+const [previousTestimonial, nextTestimonial] = testimonialControls.querySelectorAll('button');
+
+function updateTestimonialControls() {
+  previousTestimonial.disabled = testimonialGallery.scrollLeft <= 1;
+  nextTestimonial.disabled = testimonialGallery.scrollLeft >= testimonialGallery.scrollWidth - testimonialGallery.clientWidth - 1;
+}
+
+testimonialControls.hidden = false;
+testimonialControls.querySelectorAll('button').forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const step = testimonialGallery.children[1].offsetLeft - testimonialGallery.children[0].offsetLeft;
+    testimonialGallery.scrollBy({
+      left: index === 0 ? -step : step,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+    });
+  });
+});
+testimonialGallery.addEventListener('scroll', updateTestimonialControls);
+window.addEventListener('resize', updateTestimonialControls);
+updateTestimonialControls();
 
 if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observer = new IntersectionObserver((entries) => {
@@ -29,5 +51,5 @@ document.querySelector('#lead-form').addEventListener('submit', (event) => {
   const name = formData.get('name').trim();
   const service = formData.get('service');
   const message = `Oi meu nome é ${name} e queria saber mais sobre ${service}`;
-  window.location.href = `https://wa.me/5531972590277?text=${encodeURIComponent(message)}`;
+  window.location.href = `https://wa.me/5531975625629?text=${encodeURIComponent(message)}`;
 });

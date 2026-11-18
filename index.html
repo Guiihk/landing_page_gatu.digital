@@ -43,7 +43,9 @@
       .steps span{display:inline-block;animation:gatuLetter 2.8s cubic-bezier(.4,0,.2,1) infinite}
       .steps li:nth-child(2) span{animation-delay:-.7s}.steps li:nth-child(3) span{animation-delay:-1.4s}.steps li:nth-child(4) span{animation-delay:-2.1s}
       @keyframes gatuLetter{0%,100%{transform:translateY(0) rotate(0);color:var(--pink)}45%,60%{transform:translateY(-10px) rotate(-4deg);color:#52004f}}
-      .testimonial-shot{margin:0;padding:0;min-height:0;aspect-ratio:1/2;overflow:hidden;background:#101013;border-style:solid;border-color:rgba(126,0,120,.22);place-items:unset}.testimonial-shot img{width:100%;height:100%;display:block;object-fit:contain;background:#101013;transition:transform .3s ease}.testimonial-shot:hover img{transform:scale(1.025)}
+      .testimonial-shot{margin:0;padding:0;min-height:0;aspect-ratio:auto;align-self:start;overflow:hidden;background:#101013;border-style:solid;border-color:rgba(126,0,120,.22);place-items:unset}.testimonial-shot img{width:100%;height:auto;display:block;object-fit:contain;background:#101013}.testimonial-shot:hover img{transform:none}
+      .testimonial-controls{display:none;gap:10px}.testimonial-controls button{width:44px;height:44px;border:1px solid var(--pink);border-radius:50%;background:#fff;color:var(--pink);font-size:1.5rem;cursor:pointer}.testimonial-controls button:disabled{opacity:.3;cursor:default}.testimonial-controls button:focus-visible,.testimonial-grid:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+      @media(min-width:801px){.testimonial-controls:not([hidden]){display:flex}.testimonial-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.testimonial-grid::-webkit-scrollbar{display:none}.testimonial-shot{scroll-snap-align:start}.testimonial-shot:hover{transform:none}}
       .faq-item{transition:background .35s ease,padding .35s ease}.faq-item summary{transition:padding .35s ease,color .35s ease}.faq-item summary::after{content:"+"!important;transition:transform .38s cubic-bezier(.2,.8,.2,1)}.faq-item[open] summary{padding:24px 18px 15px;color:var(--pink)}.faq-item[open] summary::after{transform:rotate(45deg)}.faq-item p{display:block;overflow:hidden;max-height:0;opacity:0;margin:0 36px 0 18px!important;transition:max-height .45s cubic-bezier(.2,.8,.2,1),opacity .28s ease,margin .45s cubic-bezier(.2,.8,.2,1)}.faq-item[open] p{max-height:240px;opacity:1;margin:0 36px 25px 18px!important}.faq-item[open]{background:linear-gradient(90deg,rgba(126,0,120,.075),transparent)}
       @media(prefers-reduced-motion:reduce){.hero-visual .hero-workspace,.steps span,.button-primary:hover,.service-wide .circle-link:hover,.button-primary:active,.service-wide .circle-link:active,.site-header .brand{animation:none}.site-header .brand{transition:none}}
     </style>
@@ -109,11 +111,13 @@
       </section>
 
       <section class="testimonials shell" aria-labelledby="testimonials-title">
-        <div class="testimonials-head reveal"><div><p class="eyebrow">prova social</p><h2 id="testimonials-title">Resultados que os clientes compartilham.</h2></div></div>
-        <div class="testimonial-grid">
+        <div class="testimonials-head reveal"><div><p class="eyebrow">prova social</p><h2 id="testimonials-title">Resultados que os clientes compartilham.</h2></div><div class="testimonial-controls" hidden><button type="button" aria-label="Depoimento anterior" aria-controls="testimonial-gallery" disabled>←</button><button type="button" aria-label="Próximo depoimento" aria-controls="testimonial-gallery">→</button></div></div>
+        <div class="testimonial-grid" id="testimonial-gallery" tabindex="0" role="region" aria-label="Depoimentos de clientes">
           <figure class="testimonial-shot reveal"><img src="assets/testimonials/resultado-agendamentos.jpeg" alt="Print de conversa no WhatsApp com resultado de agendamentos e vendas" /></figure>
           <figure class="testimonial-shot reveal"><img src="assets/testimonials/resultado-campanhas.jpeg" alt="Print de conversa no WhatsApp sobre campanhas e resultado diário" /></figure>
           <figure class="testimonial-shot reveal"><img src="assets/testimonials/resultado-producao.jpeg" alt="Print de conversa no WhatsApp com resultado de produção" /></figure>
+          <figure class="testimonial-shot reveal"><img src="assets/testimonials/resultado-dia-d-nova-lima.jpeg" alt="Print de conversa no WhatsApp com a equipe comemorando mais de R$ 1 milhão em vendas no Dia D em Nova Lima" loading="lazy" /></figure>
+          <figure class="testimonial-shot reveal"><img src="assets/testimonials/depoimento-dia-d-nova-lima.jpeg" alt="Depoimento de Marina Campolina no WhatsApp sobre o recorde de vendas e o trabalho da equipe no Dia D em Nova Lima" loading="lazy" /></figure>
         </div>
       </section>
 
@@ -129,8 +133,69 @@
         </div>
       </section>
 
+      <section id="ia-whatsapp" class="ai-section shell" aria-labelledby="ai-title">
+        <div class="ai-intro">
+          <div class="reveal"><p class="eyebrow">IA de atendimento no WhatsApp</p><h2 id="ai-title">Cada conversa pode ser seu próximo fechamento</h2><p class="ai-description">Uma IA personalizada para o seu negócio atender no WhatsApp, tirar dúvidas e conduzir o cliente até o próximo passo. Mesmo quando sua equipe está ocupada ou fora do horário comercial.</p><p class="ai-description"><strong>Teste gratuitamente por 3 dias</strong> e conheça na prática a IA de atendimento no WhatsApp.</p><a class="button button-primary" href="https://wa.me/5531975625629?text=Quero%20testar%20gratuitamente%20por%203%20dias%20a%20IA%20de%20atendimento%20no%20WhatsApp">Testar gratuitamente por 3 dias</a></div>
+          <dl class="ai-benefits reveal">
+            <div><dt>Atendimento 24 horas, todos os dias da semana</dt><dd>Receba seus clientes a qualquer hora, com respostas alinhadas às informações do seu negócio.</dd></div>
+            <div><dt>Conversas com direção</dt><dd>Entenda o que o cliente procura e facilite o caminho para o agendamento, como na demonstração abaixo.</dd></div>
+            <div><dt>Oportunidades organizadas</dt><dd>Acompanhe os contatos pelo pipeline, da chegada de um novo lead à consulta agendada.</dd></div>
+          </dl>
+        </div>
+        <figure class="ai-demo reveal">
+          <figcaption><h3>Veja o atendimento na prática.</h3><p>Uma demonstração de conversa e agendamento com IA no WhatsApp.</p></figcaption>
+          <video controls playsinline preload="none" poster="assets/ia-whatsapp/demo-capa.jpg" aria-label="Demonstração do atendimento e agendamento por IA no WhatsApp"><source src="assets/ia-whatsapp/demo-atendimento.mp4" type="video/mp4" />Seu navegador não suporta este vídeo. <a href="assets/ia-whatsapp/demo-atendimento.mp4">Abra a demonstração em vídeo.</a></video>
+        </figure>
+        <figure class="ai-platform reveal">
+          <figcaption><div><p class="eyebrow">visão da plataforma</p><h3>Do primeiro contato ao próximo passo.</h3></div><p>Visualize as oportunidades por etapa e acompanhe o andamento dos atendimentos em um só lugar.</p></figcaption>
+          <a href="assets/ia-whatsapp/pipeline-vendas.png" target="_blank" rel="noopener" aria-label="Ampliar imagem do pipeline de vendas (abre em nova aba)"><img src="assets/ia-whatsapp/pipeline-vendas.png" alt="Plataforma de atendimento com pipeline dividido em novos leads, qualificação, oportunidade de agendar consulta, consulta agendada, ganho e perdido" width="2371" height="841" loading="lazy" /></a>
+          <p class="ai-image-hint">Clique na imagem para ampliar.</p>
+        </figure>
+      </section>
+
       <section class="statement shell reveal">
         <p>Presença digital <strong>não é mais opção, é a sobrevivência do seu negócio.</strong></p>
+      </section>
+
+      <section id="pacotes" class="packages shell" aria-labelledby="packages-title">
+        <div class="section-intro reveal"><p class="eyebrow">soluções que crescem com você</p><h2 id="packages-title">Pacotes ideais para o crescimento do seu negócio.</h2><p>Conecte os serviços que seu negócio precisa para atrair clientes, atender melhor e acompanhar cada oportunidade.</p></div>
+        <div class="packages-grid">
+          <article class="package-card reveal" aria-labelledby="package-presenca">
+            <h3 id="package-presenca">Presença</h3><p class="package-description">Para atrair oportunidades e começar cada conversa com agilidade.</p>
+            <p class="package-price"><span>a partir de</span><strong>R$1.997<small>/mês</small></strong></p>
+            <ul><li>Gestão de tráfego pago</li><li>Plataforma de trackeamento</li><li>Agente de IA de atendimento no WhatsApp</li></ul>
+            <a class="button button-primary" href="https://wa.me/5531975625629?text=Quero%20saber%20mais%20sobre%20o%20pacote%20Presen%C3%A7a">Escolher Presença</a>
+          </article>
+          <article class="package-card package-highlight reveal" aria-labelledby="package-conexao">
+            <h3 id="package-conexao">Conexão</h3><p class="package-description">Para conectar campanhas, presença no Google e uma página feita para o seu negócio.</p>
+            <p class="package-price"><span>a partir de</span><strong>R$3.200<small>/mês</small></strong></p>
+            <ul><li>Gestão de tráfego pago</li><li>Plataforma de trackeamento</li><li>Agente de IA de atendimento no WhatsApp</li><li>Google Meu Negócio</li><li>Desenvolvimento de landing page</li></ul>
+            <a class="button button-primary" href="https://wa.me/5531975625629?text=Quero%20saber%20mais%20sobre%20o%20pacote%20Conex%C3%A3o">Escolher Conexão</a>
+          </article>
+          <article class="package-card reveal" aria-labelledby="package-dominio">
+            <h3 id="package-dominio">Domínio</h3><p class="package-description">Para estruturar a operação comercial e fortalecer a reputação do seu negócio.</p>
+            <p class="package-price"><span>a partir de</span><strong>R$4.997<small>/mês</small></strong></p>
+            <ul><li>Gestão de tráfego pago</li><li>Plataforma de trackeamento</li><li>Agente de IA de atendimento no WhatsApp</li><li>Google Meu Negócio</li><li>Desenvolvimento de landing page</li><li>Implementação de CRM comercial automatizado</li><li>Gestão de avaliações do Google Meu Negócio</li></ul>
+            <a class="button button-primary" href="https://wa.me/5531975625629?text=Quero%20saber%20mais%20sobre%20o%20pacote%20Dom%C3%ADnio">Escolher Domínio</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="trackeamento" class="tracking-section shell" aria-labelledby="tracking-title">
+        <div class="section-intro reveal"><p class="eyebrow">gatu.track · trackeamento e resultados</p><h2 id="tracking-title">Mais clareza sobre os resultados. Mais direção para suas campanhas.</h2><p>Se você já faz tráfego pago para sua empresa, deve saber que o grande diferencial está em conectar o anúncio ao que acontece depois do clique. Com a plataforma de trackeamento e o dashboard, você acompanha a chegada dos leads, a evolução das oportunidades e os resultados do tráfego pago.</p></div>
+        <figure class="ai-platform tracking-dashboard reveal">
+          <figcaption><div><h3>Seu investimento e seus resultados na mesma visão.</h3></div><p>Acompanhe investimento, leads, custo por lead, vendas e taxa de conversão para orientar as próximas decisões.</p></figcaption>
+          <a href="assets/trackeamento/dashboard-resultados.png" target="_blank" rel="noopener" aria-label="Ampliar dashboard de resultados (abre em nova aba)"><img src="assets/trackeamento/dashboard-resultados.png" alt="Dashboard gatu.track com indicadores de investimento, leads, vendas, custos e taxa de conversão" width="2513" height="748" loading="lazy" /></a>
+        </figure>
+        <div class="tracking-feedback">
+          <div class="reveal"><p class="eyebrow">o diferencial para a qualidade dos leads</p><h3>Mostre às campanhas quais contatos avançam de verdade.</h3><p>Receber mensagens é o começo. Entender quais contatos se tornam oportunidades e vendas ajuda a identificar o que traz valor para o seu negócio.</p><p>Ao registrar as etapas do funil e enviar eventos de conversão para Meta e Google Ads, a plataforma leva esses sinais de volta às campanhas. Assim, a gestão ganha dados para ajustar a estratégia e buscar leads mais alinhados ao seu perfil de cliente.</p></div>
+          <figure class="ai-platform reveal"><a href="assets/trackeamento/transmissao-conversoes.png" target="_blank" rel="noopener" aria-label="Ampliar detalhes de transmissão de conversões (abre em nova aba)"><img src="assets/trackeamento/transmissao-conversoes.png" alt="Detalhe de evento com transmissão de conversão concluída para Meta Conversions API e Google Ads" width="795" height="483" loading="lazy" /></a><figcaption class="tracking-caption">Visibilidade sobre os eventos enviados e o status de cada integração.</figcaption></figure>
+        </div>
+        <div class="tracking-gallery">
+          <figure class="ai-platform reveal"><figcaption><div><h3>Acompanhe cada oportunidade.</h3><p>Veja os leads por etapa no CRM e acompanhe o caminho do primeiro contato até a venda fechada.</p></div></figcaption><a href="assets/trackeamento/crm-funil.png" target="_blank" rel="noopener" aria-label="Ampliar CRM e funil de vendas (abre em nova aba)"><img src="assets/trackeamento/crm-funil.png" alt="CRM gatu.track com as etapas novo lead, em contato, oportunidade de agendamento e venda fechada" width="1749" height="669" loading="lazy" /></a></figure>
+          <figure class="ai-platform reveal"><figcaption><div><h3>Entenda o movimento dos contatos.</h3><p>Visualize os eventos ao longo do dia e a distribuição geográfica para complementar a análise das campanhas.</p></div></figcaption><a href="assets/trackeamento/eventos-origem.png" target="_blank" rel="noopener" aria-label="Ampliar gráficos de eventos e distribuição geográfica (abre em nova aba)"><img src="assets/trackeamento/eventos-origem.png" alt="Plataforma gatu.track com gráfico de eventos por hora e visualização da distribuição geográfica" width="1406" height="667" loading="lazy" /></a></figure>
+        </div>
+        <div class="tracking-footer reveal"><p class="ai-image-hint">Clique nas imagens para ampliar e explorar os detalhes da plataforma.</p><a class="button button-primary" href="https://wa.me/5531975625629?text=Quero%20conhecer%20a%20plataforma%20de%20trackeamento%20e%20o%20dashboard%20de%20resultados">Conhecer a plataforma</a></div>
       </section>
 
       <section class="faq" aria-labelledby="faq-title">
